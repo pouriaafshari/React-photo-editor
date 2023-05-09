@@ -1,0 +1,47 @@
+body
+{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-align: center;
+}
+
+.container
+{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 1fr auto;
+  grid-template-areas: 
+    "image sidebar"
+    "slider sidebar";
+
+  height: 100vh;
+  width: 100vw;
+}
+
+.main-image
+{
+  grid-area: image;
+  background-image: url("./image.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 1em;
+}
+.sidebar
+{
+  grid-area: sidebar;
+  background-color: lightskyblue;
+}
+.slider-container
+{
+  grid-area: slider;
+  padding: 2em;
+  margin: 2em;
+}
+.slider
+{
+  width: 100%;
+  max-width: 40em;
+  cursor: pointer;
+}
