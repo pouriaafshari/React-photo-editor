@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/React-photo-editor/static/css/main.ce3caa25.css",
-    "main.js": "/React-photo-editor/static/js/main.88342448.js",
+    "main.css": "/React-photo-editor/static/css/main.1ec61598.css",
+    "main.js": "/React-photo-editor/static/js/main.c24010ea.js",
     "static/js/787.58361557.chunk.js": "/React-photo-editor/static/js/787.58361557.chunk.js",
     "index.html": "/React-photo-editor/index.html",
-    "main.ce3caa25.css.map": "/React-photo-editor/static/css/main.ce3caa25.css.map",
-    "main.88342448.js.map": "/React-photo-editor/static/js/main.88342448.js.map",
+    "main.1ec61598.css.map": "/React-photo-editor/static/css/main.1ec61598.css.map",
+    "main.c24010ea.js.map": "/React-photo-editor/static/js/main.c24010ea.js.map",
     "787.58361557.chunk.js.map": "/React-photo-editor/static/js/787.58361557.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ce3caa25.css",
-    "static/js/main.88342448.js"
+    "static/css/main.1ec61598.css",
+    "static/js/main.c24010ea.js"
   ]
 }
