@@ -6,12 +6,13 @@ function Slider({minVal, maxVal, Val, handleSlider}) {
     <div className="slider-container">
         <input
             type="range"
-            className="slider"
+            className="slider2"
             min={minVal}
             max={maxVal}
             value={Val}
-            onChange={handleSlider}
+            onChange={handleSlider} 
         />
+        <p className='slider-value'>{Val}</p>
     </div>
   );
 }
