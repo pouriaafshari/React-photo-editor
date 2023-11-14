@@ -54,6 +54,8 @@ const DEFAULT_OPTIONS = [
   }
 ]
 
+const Free = ["brigtness", "contrast", "sturate"]
+
 function App() {
   const [selectedindex, setselectedindex] = useState(0);
   const [options, setoptions] = useState(DEFAULT_OPTIONS); 
@@ -108,8 +110,10 @@ function App() {
             name={options.name}
             active = {selectedindex === index}
             handleClick={()=>{setselectedindex(index)}}
+            premium={(index>1)? true: false}
           />)
         })}
+        <button>Get Premium</button>
       </div>
       <Slider
         minVal={options[selectedindex].range.min}

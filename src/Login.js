@@ -1,15 +1,20 @@
 // Login.jsx
 
-import React, { useState } from "react";
+import React, { createContext, useState } from "react";
 import "./Login.css"; // Import your CSS file
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 export default function Login() {
   const [isSignUp, setSignUp] = useState(false);
+  const Loggedin = createContext(false)
 
   const handleSwitchToggle = () => {
     setSignUp(!isSignUp);
   };
+
+  function handleLogin() {
+    
+  }
 
   return (
     <div className="login-container">
@@ -38,11 +43,9 @@ export default function Login() {
             <input type="password" placeholder="Password" className="login-input"/>
         </>}
         <br />
-        <Link to="/editor">
-          <button className={isSignUp?"signup-button":"login-button"}>
-              {isSignUp?"Sign Up":"Login"}
-          </button>
-        </Link>
+        <button className={isSignUp?"signup-button":"login-button"} onClick={handleLogin}>
+          {isSignUp?"Sign Up":"Login"}
+        </button>
         <br />
         <button className="google-login">Login with Google</button>
       </div>

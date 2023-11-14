@@ -104,9 +104,18 @@ body {
   border-radius: 0.2rem;
   background-color: #FFDFDF;
   margin: 0.1rem;
+  position: relative;
 }
 .sidebar-item.active {
   background-color: #F875AA;
+}
+.premium-item::before {
+  content: "premium";
+  position: absolute;
+  color: gray;
+  bottom: 2px;
+  left: 2px;
+  font-size: 10px;
 }
 
 
