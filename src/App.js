@@ -35,7 +35,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/React-photo-editor/" element={<Login />} />
-          <Route path="React-photo-editor/editor" element={<Editor />} />
+          <Route path="/React-photo-editor/editor" element={<Editor />} />
         </Routes>
       </BrowserRouter>
     </div>
