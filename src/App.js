@@ -1,50 +1,45 @@
 import React, { useState, useEffect, useContext, createContext } from 'react';
-import * as ReactDOM from "react-dom/client";
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Navigate
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Loading from './Loading';
-import Editor from './Editor'
+import Editor from './Editor';
 import Login from './Login';
 import './App.css';
 
+// Create an AuthContext
+const AuthContext = createContext();
+
 function App() {
   const [loading, setLoading] = useState(true);
-  const Loggedin = useContext(false);
+  const [loggedIn, setLoggedIn] = useState(false);
 
-  const ProtectedRoute = ({children}) => {
-    if (!Loggedin) {
-      return <Navigate to="/" />
+  const ProtectedRoute = ({ children }) => {
+    if (!loggedIn) {
+      return <Navigate to="/" />;
     }
 
-    return children
-  }
+    return children;
+  };
 
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Login />,
-    },
-    {
-      path: "/editor",
-      element: <ProtectedRoute><Editor /></ProtectedRoute>,
-    }
-  ]);
-
-  useEffect(()=>{
+  useEffect(() => {
     setTimeout(() => {
-      setLoading(false)
+      setLoading(false);
     }, 1000);
-  }, [])
+  }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div className="container">
-      {loading? <Loading /> :
-      <RouterProvider router={router} />}
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="editor" element={<Editor />} />
+        </Routes>
+      </BrowserRouter>
     </div>
-   );
+  );
 }
 
 export default App;
