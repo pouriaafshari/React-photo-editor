@@ -14,7 +14,7 @@ function App() {
 
   const ProtectedRoute = ({ children }) => {
     if (!loggedIn) {
-      return <Navigate to="/" />;
+      return <Navigate to="/React-photo-editor/" />;
     }
 
     return children;
@@ -34,8 +34,8 @@ function App() {
     <div className="container">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="editor" element={<Editor />} />
+          <Route path="/React-photo-editor/" element={<Login />} />
+          <Route path="React-photo-editor/editor" element={<Editor />} />
         </Routes>
       </BrowserRouter>
     </div>
