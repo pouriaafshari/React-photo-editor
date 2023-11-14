@@ -1,0 +1,138 @@
+/* Login.css */
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  background-color: #FFF6F6;
+}
+
+.login-input {
+  margin-bottom: 10px;
+  padding: 8px;
+  position: relative;
+}
+.password-helper {
+  font-size: 12px;
+  color: #888;
+  margin-top: 5px;
+}
+
+.input-container {
+  height: 12em;
+}
+
+.switch-container {
+  margin: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #F875AA;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+.switch::before {
+  content: "Login";
+  font-size: 14px;
+  position: absolute;
+  left: -43px;
+  top: 8px;
+}
+
+.switch::after {
+  content: "Sign Up";
+  font-size: 14px;
+  position: absolute;
+  right: -60px;
+  top: 8px;
+}
+
+input:checked + .slider {
+  background-color: #AEDEFC;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.login-button {
+  background-color: #F875AA;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 1em;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.signup-button {
+  background-color: #AEDEFC;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.google-login {
+  padding: 0.6rem;
+  margin: 1em;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 5px;
+  cursor: pointer;
+}
