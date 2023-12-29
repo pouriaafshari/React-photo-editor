@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import './App.css';
+import Login from './Login'
+import Editor from './Editor'
 
 export default function App() {
   return (
@@ -16,9 +18,3 @@ export default function App() {
   );
 }
 
-function Login() {
-  return(<div>Login</div>)
-}
-function Editor() {
-  return(<div>Editor</div>)
-}

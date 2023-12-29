@@ -117,7 +117,15 @@ body {
   left: 2px;
   font-size: 10px;
 }
-
+.PrimeButton {
+  margin: 5px;
+  margin-top: 10px;
+  padding: 10px;
+  font-weight: bold;
+  border: white 1px solid;
+  background-color: #F875AA;
+  cursor: pointer;
+}
 
 
 

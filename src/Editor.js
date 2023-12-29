@@ -113,7 +113,7 @@ function App() {
             premium={(index>1)? true: false}
           />)
         })}
-        <button>Get Premium</button>
+        <button className='PrimeButton'>Get Premium</button>
       </div>
       <Slider
         minVal={options[selectedindex].range.min}
