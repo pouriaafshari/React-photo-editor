@@ -116,6 +116,10 @@ input:checked + .slider:before {
   cursor: pointer;
   border-radius: 5px;
 }
+.login-button:disabled {
+  background-color: darkgray;
+  color: gray;
+}
 .signup-button {
   background-color: #AEDEFC;
   border: none;
@@ -127,6 +131,10 @@ input:checked + .slider:before {
   font-size: 16px;
   cursor: pointer;
   border-radius: 5px;
+}
+.signup-button:disabled {
+  background-color: darkgray;
+  color: gray;
 }
 .google-login {
   padding: 0.6rem;
