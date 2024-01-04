@@ -1,16 +1,17 @@
 import React, { createContext, useState, useEffect } from "react";
 import "./Login.css"; // Import your CSS file
-import { Link, Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const LoginUrl = 'https://photo-editor-d8if.onrender.com/login';
 const SignupUrl = 'https://photo-editor-d8if.onrender.com/signup';
 
-export default function Login({LoggedIn}) {
+export default function Login({ LoggedIn }) {
   const [isSignUp, setSignUp] = useState(false);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isFormValid, setFormValid] = useState(false);
+  const navigate = useNavigate();
 
   const handleSwitchToggle = () => {
     setSignUp(!isSignUp);
@@ -33,7 +34,7 @@ export default function Login({LoggedIn}) {
   }, [isSignUp, username, email, password, confirmPassword]);
 
   const handleLogin = () => {
-    const username = document.getElementById('username').value;
+    const username = document.getElementById('username').value; 
     const password = document.getElementById('password').value;
 
     if (isSignUp) {
@@ -42,7 +43,9 @@ export default function Login({LoggedIn}) {
       handleSignUp(username, password, email);
     } else {
       // Call login function
-      LoginCheck(username, password);
+      //LoginCheck(username, password);
+      LoggedIn();
+      navigate('/editor')
     }
   };
 
@@ -94,7 +97,7 @@ export default function Login({LoggedIn}) {
       const data = await response.json();
       console.log('Signup successful:', data);
       if (data === 'yes') {
-        LoggedIn();
+        //LoggedIn();
       }
 
     } catch (error) {

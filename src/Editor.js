@@ -54,12 +54,17 @@ const DEFAULT_OPTIONS = [
   }
 ]
 
-const Free = ["brigtness", "contrast", "sturate"]
-
 function App() {
+  const [isStandard, setIsStandard] = useState(true);
   const [selectedindex, setselectedindex] = useState(0);
   const [options, setoptions] = useState(DEFAULT_OPTIONS); 
   const [URL, setURL] = useState("https://i.pinimg.com/originals/37/6c/78/376c788b791d6c11dc5f58d8e5e0f027.jpg");
+
+  function goPremium()
+  {
+    setIsStandard(false)
+  }
+
   function GetImageStyle()
   {
     const filters = options.map((option) => {
@@ -110,10 +115,10 @@ function App() {
             name={options.name}
             active = {selectedindex === index}
             handleClick={()=>{setselectedindex(index)}}
-            premium={(index>1)? true: false}
+            premium={(index>1)? isStandard: false}
           />)
         })}
-        <button className='PrimeButton'>Get Premium</button>
+        <button className='PrimeButton' onClick={goPremium}>Get Premium</button>
       </div>
       <Slider
         minVal={options[selectedindex].range.min}

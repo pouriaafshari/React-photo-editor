@@ -10,8 +10,7 @@ export default function App() {
   const [currentUser, setCurrentUser] = useState(false);
 
   const LoggedIn = () => {
-    alert("ok");
-    setCurrentUser(true);
+    setCurrentUser(true)
   }
 
   const ProtectedRoute = ({ children }) => {
