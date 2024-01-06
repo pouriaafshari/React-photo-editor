@@ -37,6 +37,7 @@ export default function Login({ LoggedIn }) {
   const handleLogin = () => {
     const username = document.getElementById('username').value; 
     const password = document.getElementById('password').value;
+    setFormValid(false)
 
     if (isSignUp) {
       // Call signup function
@@ -65,8 +66,8 @@ export default function Login({ LoggedIn }) {
         throw new Error('Network response was not ok');
       }
 
-      const data = await response.json();
-      console.log('Login successful:', data);
+      const data = await response.text();
+      console.log('Login successful:', data[0]);
       if (data === 'yes') {
         LoggedIn();
         navigate('/editor')
@@ -98,7 +99,7 @@ export default function Login({ LoggedIn }) {
         throw new Error('Network response was not ok');
       }
 
-      const data = await response.json();
+      const data = await response.text();
       console.log('Signup successful:', data);
 
       if (data === 'yes') {
