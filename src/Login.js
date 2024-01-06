@@ -106,7 +106,7 @@ export default function Login({ LoggedIn }) {
         navigate('/editor')
       }
       else {
-        setMessage("*User not found or Wrong pass word*")
+        setMessage("*Username is taken*")
       }
       
     } catch (error) {
