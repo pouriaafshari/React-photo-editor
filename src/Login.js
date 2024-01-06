@@ -12,6 +12,7 @@ export default function Login({ LoggedIn }) {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isFormValid, setFormValid] = useState(false);
   const navigate = useNavigate();
+  const [message, setMessage] = useState("")
 
   const handleSwitchToggle = () => {
     setSignUp(!isSignUp);
@@ -43,9 +44,7 @@ export default function Login({ LoggedIn }) {
       handleSignUp(username, password, email);
     } else {
       // Call login function
-      //LoginCheck(username, password);
-      LoggedIn();
-      navigate('/editor')
+      LoginCheck(username, password);
     }
   };
 
@@ -68,8 +67,13 @@ export default function Login({ LoggedIn }) {
 
       const data = await response.json();
       console.log('Login successful:', data);
-      
-
+      if (data === 'yes') {
+        LoggedIn();
+        navigate('/editor')
+      }
+      else {
+        setMessage("*User not found or Wrong pass word*")
+      }
     } catch (error) {
       console.error('Error during login:', error.message);
       // Handle errors as needed
@@ -96,10 +100,15 @@ export default function Login({ LoggedIn }) {
 
       const data = await response.json();
       console.log('Signup successful:', data);
-      if (data === 'yes') {
-        //LoggedIn();
-      }
 
+      if (data === 'yes') {
+        LoggedIn();
+        navigate('/editor')
+      }
+      else {
+        setMessage("*User not found or Wrong pass word*")
+      }
+      
     } catch (error) {
       console.error('Error during signup:', error.message);
     }
@@ -171,6 +180,7 @@ export default function Login({ LoggedIn }) {
             />
         </>}
         <br />
+        <p id="message">{message}</p>
         <button className={isSignUp ? "signup-button" : "login-button"} onClick={handleLogin} disabled={!isFormValid}>
           {isSignUp ? "Sign Up" : "Login"}
         </button>
