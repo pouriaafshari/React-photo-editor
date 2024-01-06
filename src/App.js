@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
-import { HashRouter as BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import './App.css';
-import Login from './Login';
-import Editor from './Editor';
+import Login from './Login'
+import Editor from './Editor'
 
 export default function App() {
+
   const [currentUser, setCurrentUser] = useState(false);
 
   const LoggedIn = () => {
-    setCurrentUser(true);
-  };
+    setCurrentUser(true)
+  }
 
   const ProtectedRoute = ({ children }) => {
     if (!currentUser) {
-      return <Navigate to="/React-photo-editor" />;
+      return <Navigate to="/" />;
     }
-
+  
     return children;
   };
 
@@ -24,17 +25,18 @@ export default function App() {
     <div className="container">
       <BrowserRouter>
         <Routes>
-          <Route path="/React-photo-editor" element={<Login LoggedIn={LoggedIn} />} />
+          <Route path="/" element={<Login LoggedIn={LoggedIn}/>} />
           <Route
-            path="/React-photo-editor/editor"
+            path="/editor"
             element={
               <ProtectedRoute>
                 <Editor />
               </ProtectedRoute>
             }
           />
-        </Routes>
+          </Routes>
       </BrowserRouter>
     </div>
   );
 }
+
