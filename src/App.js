@@ -25,9 +25,9 @@ export default function App() {
     <div className="container">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Login LoggedIn={LoggedIn}/>} />
+          <Route path="/React-photo-editor" element={<Login LoggedIn={LoggedIn}/>} />
           <Route
-            path="/editor"
+            path="/React-photo-editor/editor"
             element={
               <ProtectedRoute>
                 <Editor />
