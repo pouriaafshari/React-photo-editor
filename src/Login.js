@@ -68,7 +68,7 @@ export default function Login({ LoggedIn }) {
 
       const data = await response.text();
       console.log('Login successful:', data[0]);
-      if (data === 'yes') {
+      if (data === 'Login successful') {
         LoggedIn();
         navigate('/editor')
       }
@@ -102,7 +102,7 @@ export default function Login({ LoggedIn }) {
       const data = await response.text();
       console.log('Signup successful:', data);
 
-      if (data === 'yes') {
+      if (data === 'Login successful') {
         LoggedIn();
         navigate('/editor')
       }
