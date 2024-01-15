@@ -102,7 +102,7 @@ export default function Login({ LoggedIn }) {
       const data = await response.text();
       console.log('Signup successful:', data);
 
-      if (data === 'Login successful') {
+      if (data === 'User registered successfully') {
         LoggedIn();
         navigate('/editor')
       }
