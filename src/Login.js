@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie'; 
 const LoginUrl = 'https://photo-editor-d8if.onrender.com/login';
 const SignupUrl = 'https://photo-editor-d8if.onrender.com/signup';
-//const serverAuthUrl = 'https://photo-editor-d8if.onrender.com/auth'
-const serverAuthUrl = 'http://localhost:3000/auth'
+const serverAuthUrl = 'https://photo-editor-d8if.onrender.com/auth'
+//const serverAuthUrl = 'http://localhost:3000/auth'
 
 export default function Login({ LoggedIn }) {
   const [isSignUp, setSignUp] = useState(false);
