@@ -1,8 +1,11 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./Login.css"; // Import your CSS file
 import { useNavigate } from "react-router-dom";
+import Cookies from 'js-cookie'; 
 const LoginUrl = 'https://photo-editor-d8if.onrender.com/login';
 const SignupUrl = 'https://photo-editor-d8if.onrender.com/signup';
+//const serverAuthUrl = 'https://photo-editor-d8if.onrender.com/auth'
+const serverAuthUrl = 'http://localhost:3000/auth'
 
 export default function Login({ LoggedIn }) {
   const [isSignUp, setSignUp] = useState(false);
@@ -33,6 +36,39 @@ export default function Login({ LoggedIn }) {
       setFormValid(isUsernameValid && isPasswordValid);
     }
   }, [isSignUp, username, email, password, confirmPassword]);
+
+  useEffect(() => {
+    const authenticateToken = async () => {
+      const storedAccessToken = Cookies.get('accessToken');
+
+      if (storedAccessToken) {
+        try {
+          console.log(storedAccessToken);
+          const response = await fetch(serverAuthUrl, {
+            headers: {
+              Authorization: `Bearer ${storedAccessToken}`,
+            },
+          });
+
+          const responseBody = await response.text();
+
+          if (responseBody === "Token is valid") {
+            LoggedIn();
+            navigate('/editor');
+          } else {
+            // Handle server error or authentication failure
+            console.error('Server error or authentication failure:', response.statusText);
+          }
+        } catch (error) {
+          console.error('Error sending GET request:', error);
+        }
+      } else {
+        console.log("token not found or not valid.")
+      }
+    };
+
+    authenticateToken();
+  }, [navigate]);
 
   const handleLogin = () => {
     const username = document.getElementById('username').value; 
@@ -66,18 +102,19 @@ export default function Login({ LoggedIn }) {
         throw new Error('Network response was not ok');
       }
 
-      const data = await response.text();
-      console.log('Login successful:', data[0]);
-      if (data === 'Login successful') {
+      const data = await response.json();
+      console.log('Login response:', data);
+
+      if (data.Accesstoken) {
+        Cookies.set('accessToken', data.Accesstoken);
         LoggedIn();
-        navigate('/editor')
+        navigate('/editor');
       }
       else {
         setMessage("*User not found or Wrong pass word*")
       }
     } catch (error) {
       console.error('Error during login:', error.message);
-      // Handle errors as needed
     }
   }
 
@@ -99,12 +136,14 @@ export default function Login({ LoggedIn }) {
         throw new Error('Network response was not ok');
       }
 
-      const data = await response.text();
-      console.log('Signup successful:', data);
+      const data = await response.json();
+      console.log('Login response:', data);
 
-      if (data === 'User registered successfully') {
+      if (data.Accesstoken) {
+        console.log(data.Accesstoken);
+        Cookies.set('accessToken', data.Accesstoken);
         LoggedIn();
-        navigate('/editor')
+        navigate('/editor');
       }
       else {
         setMessage("*Username is taken*")
