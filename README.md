@@ -9,7 +9,7 @@ A simple and intuitive photo editor built with React. This project was bootstrap
 ![Screenshot 1](./1.png)<br>
 *Main editing interface.*<br><br>
 ![Screenshot 2](./2.png)<br>
-*Applying filters and adjustments.*<br><br>
+*Log in and Sign up*<br><br>
 ## Installation<br><br>
 To run this project locally, clone the repository and install the dependencies:<br><br>
 <code>git clone https://github.com/yourusername/react-photo-editor.git</code><br>
